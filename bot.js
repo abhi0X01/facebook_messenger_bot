@@ -4,6 +4,14 @@ var https = require('https');
 var bodyParser = require('body-parser');
 var request = require('request');
 var app = require('express')();
+var mysql      = require('mysql');
+var urldecode = require('urldecode');
+var connection = mysql.createConnection({ //mysql db configuration
+  host     : '//host ip address',
+  user     : '//database username',
+  password : '//datbase password',
+  database : '//database name'
+});
 
 var httpsOption = {
    ca: fs.readFileSync('---path----/CACert.crt'), //mention the path of the CA
@@ -23,7 +31,7 @@ app.use(function(req, res, next) {
 
 app.get('/', function (req, res) {
 	console.log("yes");
-   res.send('Welcome to Zerch Bot application!');
+   res.send('Welcome to my Bot!');
 });
 
 
